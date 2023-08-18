@@ -1,3 +1,6 @@
+/* eslint-disable no-else-return */
+/* eslint-disable no-useless-return */
+const mongoose = require("mongoose");
 const Movie = require("../models/movie");
 
 const BadReqErr = require("../errors/BadReqErr");

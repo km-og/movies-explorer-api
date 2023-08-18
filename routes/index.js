@@ -1,3 +1,4 @@
+const router = require("express").Router();
 const { login, createUser } = require("../controllers/users");
 const NotFoundErr = require("../errors/NotFoundErr");
 const auth = require("../middlewares/auth");
@@ -7,8 +8,6 @@ const {
 } = require("../middlewares/validation");
 const { moviesRouter } = require("./movies");
 const usersRouter = require("./users");
-
-const router = require("express").Router();
 
 router.post("/signin", signinValidation, login);
 router.post("/signup", signupValidation, createUser);

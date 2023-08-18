@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-else-return */
 const jwt = require("jsonwebtoken");
 const UnauthErr = require("../errors/UnauthErr");
 

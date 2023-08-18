@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 class UnauthErr extends Error {
   constructor(mess) {
     super(mess);

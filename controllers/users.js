@@ -1,3 +1,8 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable comma-dangle */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-else-return */
+/* eslint-disable no-useless-return */
 const { mongoose } = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -6,6 +11,8 @@ const User = require("../models/user");
 const BadReqErr = require("../errors/BadReqErr");
 const ConflictErr = require("../errors/ConflictErr");
 const NotFoundErr = require("../errors/NotFoundErr");
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)

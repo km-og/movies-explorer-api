@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-else-return */
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
@@ -26,7 +28,7 @@ const userSchema = new mongoose.Schema(
       required: [true, "Поле 'name' должно быть заполнено"],
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
 userSchema.statics.findUserByCredentials = function (email, password) {
@@ -39,7 +41,7 @@ userSchema.statics.findUserByCredentials = function (email, password) {
         return bcrypt.compare(password, user.password).then((matched) => {
           if (!matched) {
             return Promise.reject(
-              new UnauthErr("Неправильные почта или пароль")
+              new UnauthErr("Неправильные почта или пароль"),
             );
           } else {
             return user;

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 class BadReqErr extends Error {
   constructor(mess) {
     super(mess);

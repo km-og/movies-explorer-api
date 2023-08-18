@@ -65,7 +65,7 @@ const movieSchema = new mongoose.Schema(
       required: [true, "Поле 'nameEN' должно быть заполнено"],
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
 module.exports = mongoose.model("movie", movieSchema);
