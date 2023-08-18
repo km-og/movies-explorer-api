@@ -49,12 +49,12 @@ const createMovieValidation = celebrate({
       .min(2)
       .max(30)
       .required()
-      .pattern(/[а-яё\s\d]+/gi),
+      .pattern(/[а-яё\s\d]+/i),
     nameEN: Joi.string()
       .min(2)
       .max(30)
       .required()
-      .pattern(/[\w\s\d]+/gi),
+      .pattern(/[\w\s\d]+/i),
   }),
 });
 
