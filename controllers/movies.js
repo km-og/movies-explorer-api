@@ -8,7 +8,7 @@ const NotFoundErr = require("../errors/NotFoundErr");
 const ForbiddenErr = require("../errors/ForbiddenErr");
 
 const getMovies = (req, res, next) => {
-  Movie.find({})
+  Movie.findById(req.user._id)
     .then((movies) => {
       res.send({ data: movies });
     })

@@ -6,11 +6,12 @@ const { errors } = require("celebrate");
 const router = require("./routes");
 const errorHandler = require("./middlewares/errorHandler");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
+const { DB, SERVER_PORT } = require("./utils/config");
 
-const { PORT = 3000 } = process.env;
+// const { PORT = 3000 } = process.env;
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/bitfilmsdb");
+mongoose.connect(DB);
 
 // подключаем мидлвары, роуты и всё остальное...
 app.use(helmet());
@@ -28,6 +29,6 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
+app.listen(SERVER_PORT, () => {
+  console.log(`App listening on port ${SERVER_PORT}`);
 });

@@ -11,8 +11,7 @@ const User = require("../models/user");
 const BadReqErr = require("../errors/BadReqErr");
 const ConflictErr = require("../errors/ConflictErr");
 const NotFoundErr = require("../errors/NotFoundErr");
-
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, SECRET_STRING } = require("../utils/config");
 
 const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
@@ -95,7 +94,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
+        NODE_ENV === "production" ? SECRET_STRING : "dev-secret",
         {
           expiresIn: "7d",
         }
