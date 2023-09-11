@@ -12,7 +12,7 @@ const usersRouter = require("./users");
 router.post("/signin", signinValidation, login);
 router.post("/signup", signupValidation, createUser);
 router.use("/users", auth, usersRouter);
-router.use("/movies", auth, moviesRouter);
+router.use("/movies", moviesRouter);
 
 router.use("*", auth, (req, res, next) => {
   next(new NotFoundErr("Данная страница не сущесвует"));

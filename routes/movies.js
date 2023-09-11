@@ -4,9 +4,10 @@ const {
   createMovieValidation,
   movieValidation,
 } = require("../middlewares/validation");
+const auth = require("../middlewares/auth");
 
-moviesRouter.get("/", getMovies);
-moviesRouter.post("/", createMovieValidation, createMovie);
-moviesRouter.delete("/:movieId", movieValidation, createMovie);
+moviesRouter.get("/", auth, getMovies);
+moviesRouter.post("/", auth, createMovieValidation, createMovie);
+moviesRouter.delete("/:movieId", auth, movieValidation, createMovie);
 
 module.exports = { moviesRouter };
