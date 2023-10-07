@@ -1,6 +1,9 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-extraneous-dependencies */
 require("dotenv").config();
+// import 'dotenv/config';
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 const { NODE_ENV, JWT_SECRET, DB_HOST, PORT } = process.env;
 

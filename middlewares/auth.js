@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable consistent-return */
 /* eslint-disable no-else-return */
 const jwt = require("jsonwebtoken");
@@ -13,13 +14,15 @@ module.exports = (req, res, next) => {
   } else {
     const tokenFromHeaders = authorization.replace("Bearer ", "");
     let payload;
-
     try {
       payload = jwt.verify(tokenFromHeaders, JWT_SECRET);
     } catch (err) {
       return next(new UnauthErr("Необходима авторизация"));
     }
     req.user = payload;
+    console.log(tokenFromHeaders);
+    console.log(payload);
+    console.log(JWT_SECRET);
     next();
   }
 };
