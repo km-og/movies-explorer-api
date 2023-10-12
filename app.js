@@ -16,11 +16,20 @@ const app = express();
 
 mongoose.connect(DB);
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://localhost:3000",
+      "http://km.og.nomoredomainsrocks.ru/",
+      "https://km.og.nomoredomainsrocks.ru/",
+    ],
+  }),
+);
 // подключаем мидлвары, роуты и всё остальное...
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 app.get("/crash-test", () => {
   setTimeout(() => {
     throw new Error("Сервер сейчас упадёт");
