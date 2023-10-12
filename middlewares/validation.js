@@ -17,7 +17,7 @@ const signupValidation = celebrate({
 
 const getUserByIdValidation = celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().length(24).hex().required(),
+    userId: Joi.string().hex().required(),
   }),
 });
 
@@ -44,7 +44,7 @@ const createMovieValidation = celebrate({
     thumbnail: Joi.string()
       .required()
       .pattern(/https*:\/\/[w{3}.]?[\S]+#?\.[\S]+/i),
-    owner: Joi.string().length(24).hex().required(),
+    owner: Joi.string().hex().required(),
     nameRU: Joi.string()
       .min(2)
       .required()
@@ -58,7 +58,7 @@ const createMovieValidation = celebrate({
 
 const movieValidation = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().length(24).hex().required(),
+    movieId: Joi.string().hex().required(),
   }),
 });
 
