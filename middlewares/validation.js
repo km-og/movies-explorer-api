@@ -30,10 +30,10 @@ const updateProfileValidation = celebrate({
 
 const createMovieValidation = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().required().min(2).max(30),
-    director: Joi.string().required().min(2).max(30),
+    country: Joi.string().required().min(2),
+    director: Joi.string().required().min(2),
     duration: Joi.number().required(),
-    year: Joi.string().required().min(2).max(30),
+    year: Joi.string().required().min(2),
     description: Joi.string().required().min(2),
     image: Joi.string()
       .required()
@@ -47,12 +47,10 @@ const createMovieValidation = celebrate({
     owner: Joi.string().length(24).hex().required(),
     nameRU: Joi.string()
       .min(2)
-      .max(30)
       .required()
       .pattern(/[а-яё\s\d]+/i),
     nameEN: Joi.string()
       .min(2)
-      .max(30)
       .required()
       .pattern(/[\w\s\d]+/i),
   }),
