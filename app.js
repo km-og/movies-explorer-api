@@ -21,8 +21,8 @@ app.use(
     origin: [
       "http://localhost:3000",
       "https://localhost:3000",
-      "http://km.og.nomoredomainsrocks.ru/",
-      "https://km.og.nomoredomainsrocks.ru/",
+      "http://km.og.nomoredomainsrocks.ru",
+      "https://km.og.nomoredomainsrocks.ru",
     ],
   }),
 );
