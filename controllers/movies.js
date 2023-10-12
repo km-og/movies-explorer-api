@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-else-return */
 /* eslint-disable no-useless-return */
 const mongoose = require("mongoose");
@@ -9,8 +10,9 @@ const ForbiddenErr = require("../errors/ForbiddenErr");
 
 const getMovies = (req, res, next) => {
   const owner = req.user._id;
-
-  Movie.findById({ owner })
+  console.log(req.user._id);
+  Movie.find({ owner })
+    // Movie.findById({ owner })
     .then((movies) => {
       res.send({ data: movies });
     })
