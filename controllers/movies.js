@@ -8,7 +8,9 @@ const NotFoundErr = require("../errors/NotFoundErr");
 const ForbiddenErr = require("../errors/ForbiddenErr");
 
 const getMovies = (req, res, next) => {
-  Movie.findById(req.user._id)
+  const owner = req.user._id;
+
+  Movie.findById({ owner })
     .then((movies) => {
       res.send({ data: movies });
     })
@@ -31,6 +33,7 @@ const createMovie = (req, res, next) => {
     nameEN,
     thumbnail,
   } = req.body;
+
   Movie.create({
     country,
     director,
