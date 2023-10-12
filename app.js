@@ -24,6 +24,9 @@ app.use(
       "http://km.og.nomoredomainsrocks.ru",
       "https://km.og.nomoredomainsrocks.ru",
     ],
+    methods: [
+      "GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH", "HEAD",
+    ],
   }),
 );
 // подключаем мидлвары, роуты и всё остальное...
