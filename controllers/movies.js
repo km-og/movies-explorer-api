@@ -10,6 +10,8 @@ const ForbiddenErr = require("../errors/ForbiddenErr");
 
 const getMovies = (req, res, next) => {
   const owner = req.user._id;
+  console.log(req);
+  console.log(req.user);
   console.log(req.user._id);
   Movie.find({ owner })
     // Movie.findById({ owner })

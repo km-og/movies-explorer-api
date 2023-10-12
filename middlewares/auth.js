@@ -8,13 +8,13 @@ const { JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
-  console.log(JWT_SECRET);
+  // console.log(JWT_SECRET);
 
   if (!authorization || !authorization.startsWith("Bearer ")) {
     return next(new UnauthErr("Необходима авторизация"));
   } else {
     const tokenFromHeaders = authorization.replace("Bearer ", "");
-    console.log(tokenFromHeaders);
+    // console.log(tokenFromHeaders);
     let payload;
     try {
       payload = jwt.verify(tokenFromHeaders, JWT_SECRET);
@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
       return next(new UnauthErr("Необходима авторизация"));
     }
     req.user = payload;
-    console.log(payload);
+    // console.log(payload);
     next();
   }
 };
