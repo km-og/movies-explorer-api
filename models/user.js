@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable func-names */
 /* eslint-disable no-else-return */
 const mongoose = require("mongoose");
